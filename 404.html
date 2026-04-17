@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <title>Redirect</title>
     <script>
-        // Store the current URL for client-side routing
-        const currentUrl = window.location.pathname + window.location.search + window.location.hash;
-        sessionStorage.setItem('redirect', currentUrl);
+        // Capture the requested path and redirect to index with it as a parameter
+        const fullPath = window.location.pathname + window.location.search + window.location.hash;
+        const baseUrl = '/stats-viewer/';
         
-        // Redirect to index.html
-        window.location.href = '/stats-viewer/';
+        // Redirect to index.html with the original path encoded
+        window.location.href = baseUrl + '?_redirect=' + encodeURIComponent(fullPath);
     </script>
 </head>
 <body>
-    Redirecting to stats-viewer...
+    Redirecting...
 </body>
 </html>
